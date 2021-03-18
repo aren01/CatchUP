@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      CatchUP
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-list lines="full">  
+
+    <ion-item>
+      <ion-avatar slot="start">
+        <img src="https://gravatar.com/avatar/dba6bae8c566f9d4041fb9cd9ada7741?d=identicon&f=y">
+      </ion-avatar>
+      <ion-label position="floating">Name</ion-label>
+      <ion-input [(ngModel)]="name"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label position="floating">Description</ion-label>
+      <ion-input [(ngModel)]="desc"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label>Repeat</ion-label>
+      <ion-select [(ngModel)]="repeat" placeholder="Select One">
+        <ion-select-option value="daily">Daily</ion-select-option>
+        <ion-select-option value="friday">Every Friday</ion-select-option>
+        <ion-select-option value="specific">Set Time</ion-select-option>
+      </ion-select>
+    </ion-item>
+
+    <ion-item>
+      <ion-label>Time</ion-label>
+      <ion-datetime [(ngModel)]="notifyAt" displayFormat="hh:mm A" pickerFormat="hh mm A" placeholder="Select Time"></ion-datetime>
+    </ion-item>
+
+    <ion-item>
+      <ion-button expand="block" (click)="getAll()">Get All</ion-button>
+    </ion-item>
+  
+  </ion-list>
+
+  
+
+</ion-content>
+
+<ion-footer class="ion-margin-bottom">
+
+  <ion-button expand="block" shape="round" color="secondary" (click)="onSchedule()">
+    Schedule
+  </ion-button>
+  <ion-button expand="block" shape="round" color="danger" (click)="onCancel()" >
+    Cancel All
+  </ion-button>
+</ion-footer>
